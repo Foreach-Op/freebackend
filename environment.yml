@@ -1,0 +1,8 @@
+name: freebackend
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - django
+prefix: /Users/oguzhantas/opt/anaconda3/envs/freebackend

@@ -5,4 +5,5 @@ channels:
 dependencies:
   - python=3.11
   - django
+  - mysqlclient
 prefix: /Users/oguzhantas/opt/anaconda3/envs/freebackend

@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 import paho.mqtt.client as mqtt
+from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -54,3 +55,7 @@ def getRoutes(request):
     ]
 
     return Response(routes)
+
+
+def getsocket(request):
+    return render(request, "chat/cache.html")

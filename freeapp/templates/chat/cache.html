@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lobby</title>
+</head>
+<body>
+    <h1>Cache Table</h1>
+    <button id="butt">Start</button>
+    <script type="text/javascript">
+        let url = 'ws://127.0.0.1:8000/ws/socket-server/'
+
+        const socket = new WebSocket(url)
+
+        socket.onopen = function(event) {
+            console.log('Connection established',event)
+            // Display user friendly messages for the successful establishment of connection
+
+        }
+        let butt=document.getElementById('butt')
+        butt.addEventListener("click",sendData)
+
+        socket.onmessage = function(e){
+            console.log('Data:',e.data)
+            //let data = JSON.parse(e.data)
+            //let seq=document.getElementById('sequence')
+            //seq.innerHTML=data.message
+            //console.log('Data:',data)
+        }
+
+        function sendData(){
+            socket.send(JSON.stringify({
+                event_type: 'ReceiveData',
+            }))
+        }
+
+
+    </script>
+</body>
+</html>
